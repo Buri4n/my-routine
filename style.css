@@ -1,126 +1,151 @@
+/* =========================================================
+   RESET
+========================================================= */
+
 * {
   box-sizing: border-box;
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
+
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
+
 body {
+  margin: 0;
+  min-height: 100vh;
+
   font-family:
     -apple-system,
     BlinkMacSystemFont,
-    "SF Pro Display",
-    "SF Pro Text",
     "Segoe UI",
     sans-serif;
 
   background: #f7f7f8;
-  color: #202024;
+  color: #17171a;
 }
 
 
-/* =========================================
+/* =========================================================
    APP
-========================================= */
+========================================================= */
 
 .app {
-  width: min(1500px, calc(100% - 32px));
+  width: 100%;
+  max-width: 1400px;
+
   margin: 0 auto;
-  padding: 34px 0 50px;
+  padding: 32px;
 }
 
 
-/* =========================================
+/* =========================================================
    HEADER
-========================================= */
+========================================================= */
 
 .app-header {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
+
   gap: 24px;
   margin-bottom: 24px;
 }
 
+
 .brand {
-  margin-bottom: 5px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.16em;
-  color: #85858d;
+  letter-spacing: 0.12em;
+
+  color: #77777e;
+
+  margin-bottom: 6px;
 }
+
 
 .app-header h1 {
   margin: 0;
-  font-size: clamp(28px, 3vw, 40px);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
+
+  font-size: 30px;
+  line-height: 1.1;
+
+  letter-spacing: -0.03em;
 }
+
 
 .app-header p {
-  margin: 9px 0 0;
-  color: #7b7b84;
-  font-size: 13px;
+  margin: 7px 0 0;
+
+  color: #77777e;
+
+  font-size: 14px;
 }
 
-
-/* =========================================
-   HEADER ACTIONS
-========================================= */
 
 .header-actions {
   display: flex;
   align-items: center;
+
   gap: 10px;
 }
 
+
 .event-counter {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 5px;
-  min-width: 82px;
-  justify-content: center;
-  padding: 10px 13px;
-  border: 1px solid #e5e5e8;
+
+  min-height: 40px;
+
+  padding: 0 13px;
+
+  border: 1px solid #e3e3e7;
   border-radius: 12px;
+
   background: #ffffff;
+
+  font-size: 12px;
+  color: #77777e;
 }
+
 
 .event-counter strong {
-  font-size: 17px;
+  color: #17171a;
+  font-size: 15px;
 }
 
-.event-counter span {
-  font-size: 11px;
-  color: #85858d;
-}
 
 .header-button,
 .manage-activities-btn {
   min-height: 40px;
+
+  border: 1px solid #e1e1e5;
+  border-radius: 12px;
+
   padding: 0 14px;
-  border: 1px solid #e5e5e8;
-  border-radius: 11px;
+
   background: #ffffff;
-  color: #34343a;
-  font-size: 12px;
-  font-weight: 700;
+
+  font-size: 13px;
+  font-weight: 600;
+
   cursor: pointer;
+
   transition:
     background 0.15s ease,
     border-color 0.15s ease,
-    transform 0.12s ease;
+    transform 0.15s ease;
 }
+
 
 .header-button:hover,
 .manage-activities-btn:hover {
-  background: #f3f3f5;
-  border-color: #d9d9de;
+  background: #f5f5f7;
+  border-color: #d7d7dc;
 }
+
 
 .header-button:active,
 .manage-activities-btn:active {
@@ -128,901 +153,1193 @@ body {
 }
 
 
-/* =========================================
-   LEGEND
-========================================= */
+/* =========================================================
+   LEGENDA
+========================================================= */
 
 .legend {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
+
   gap: 8px;
+
   margin-bottom: 16px;
 }
+
 
 .legend-item {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 9px;
-  border-radius: 8px;
+
+  padding: 7px 10px;
+
+  border: 1px solid #e7e7ea;
+  border-radius: 999px;
+
   background: #ffffff;
-  border: 1px solid #e9e9eb;
-  font-size: 11px;
-  color: #67676f;
-}
 
-.legend-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
+  font-size: 12px;
+  color: #55555c;
 }
 
 
-/* =========================================
-   PLANNER DESKTOP
-========================================= */
+/* =========================================================
+   PLANNER
+========================================================= */
 
 .planner {
   display: grid;
-  grid-template-columns: 150px repeat(7, minmax(0, 1fr));
-  border: 1px solid #e5e5e8;
+
+  grid-template-columns:
+    minmax(150px, 1.15fr)
+    repeat(7, minmax(105px, 1fr));
+
+  grid-auto-rows: minmax(105px, auto);
+
+  width: 100%;
+
+  border: 1px solid #e3e3e7;
   border-radius: 16px;
-  overflow: hidden;
+
   background: #ffffff;
+
+  overflow: hidden;
 }
 
-.planner-header {
-  min-height: 48px;
+
+/* =========================================================
+   INTESTAZIONE GIORNI
+========================================================= */
+
+.corner,
+.day {
+  min-width: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   border-right: 1px solid #ececef;
   border-bottom: 1px solid #ececef;
+
   background: #fafafa;
-  font-size: 11px;
-  font-weight: 800;
-  color: #777780;
-  letter-spacing: 0.06em;
 }
 
-.planner-header:first-child {
+
+.corner {
   justify-content: flex-start;
+
   padding-left: 18px;
 }
 
-.activity-label {
-  min-height: 125px;
+
+.day {
+  font-size: 12px;
+  font-weight: 800;
+
+  color: #67676e;
+
+  letter-spacing: 0.05em;
+}
+
+
+.day:nth-child(8) {
+  border-right: 0;
+}
+
+
+/* =========================================================
+   RIGHE ATTIVITÀ
+========================================================= */
+
+.activity {
+  min-width: 0;
+
   display: flex;
   align-items: center;
+
   gap: 9px;
-  padding: 15px;
+
+  padding: 12px 14px;
+
   border-right: 1px solid #ececef;
   border-bottom: 1px solid #ececef;
+
   background: #ffffff;
 }
+
 
 .activity-icon {
-  font-size: 19px;
-  flex-shrink: 0;
+  flex: 0 0 auto;
+
+  font-size: 18px;
 }
+
 
 .activity-name {
-  font-size: 12px;
-  font-weight: 750;
-  line-height: 1.2;
+  min-width: 0;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  font-size: 13px;
 }
 
-.planner-cell {
+
+.cell {
   position: relative;
-  min-height: 125px;
-  padding: 8px;
+
+  min-width: 0;
+  min-height: 105px;
+
+  padding: 7px;
+
   border-right: 1px solid #ececef;
   border-bottom: 1px solid #ececef;
+
   background: #ffffff;
+
   cursor: pointer;
+
   overflow: hidden;
-  transition: background 0.15s ease;
-}
 
-.planner-cell:hover {
-  background: #fafafa;
-}
-
-.planner > *:nth-child(8n) {
-  border-right: none;
+  transition:
+    background 0.15s ease;
 }
 
 
-/* =========================================
-   EVENT CARD
-========================================= */
+.cell:hover {
+  background: #fafafd;
+}
 
-.event-card {
+
+.cell:nth-child(8n) {
+  border-right: 0;
+}
+
+
+/* =========================================================
+   EVENTI
+========================================================= */
+
+.event {
   position: relative;
+
   width: 100%;
-  margin-bottom: 6px;
-  padding: 9px 10px;
-  border-radius: 10px;
+
+  margin-bottom: 5px;
+
+  padding: 8px 9px;
+
+  border-radius: 9px;
+
+  font-size: 11px;
+
   overflow: hidden;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.12s ease,
+    filter 0.12s ease;
 }
 
-.event-card:last-child {
+
+.event:last-child {
   margin-bottom: 0;
 }
 
-.event-card-title {
-  padding-right: 18px;
-  font-size: 11px;
-  font-weight: 800;
-  line-height: 1.25;
+
+.event:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.98);
 }
 
-.event-card-time {
-  margin-top: 4px;
+
+.event-time {
   font-size: 10px;
+  font-weight: 700;
+
+  opacity: 0.75;
+
+  white-space: nowrap;
+}
+
+
+.event-title {
+  margin-top: 3px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  word-break: break-word;
+}
+
+
+.event-note {
+  margin-top: 4px;
+
+  font-size: 10px;
+
+  line-height: 1.2;
+
   opacity: 0.72;
+
+  word-break: break-word;
 }
 
-.event-card-note {
-  margin-top: 4px;
-  font-size: 9px;
-  opacity: 0.65;
-  line-height: 1.3;
+
+/* =========================================================
+   COLORI EVENTI
+========================================================= */
+
+.color-orange {
+  background: #fff0df;
+  color: #a45b00;
 }
 
-.event-edit {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 0;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.65);
+
+.color-purple {
+  background: #eee8ff;
+  color: #6744a8;
+}
+
+
+.color-green {
+  background: #e6f6ed;
+  color: #28784b;
+}
+
+
+.color-blue {
+  background: #e6f0ff;
+  color: #376aa7;
+}
+
+
+.color-pink {
+  background: #ffe8f0;
+  color: #a83d68;
+}
+
+
+.color-yellow {
+  background: #fff8d9;
+  color: #8d7510;
+}
+
+
+.color-gray {
+  background: #eeeeef;
   color: #55555c;
-  font-size: 10px;
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.15s ease;
-}
-
-.event-card:hover .event-edit {
-  opacity: 1;
 }
 
 
-/* =========================================
-   COLORS
-========================================= */
+/* =========================================================
+   X / NON PREVISTO
+========================================================= */
 
-.activity-blue {
-  background: #eaf3ff;
-  color: #24598e;
-}
-
-.activity-pink {
-  background: #fff0f4;
-  color: #98425d;
-}
-
-.activity-yellow {
-  background: #fff7dc;
-  color: #826719;
-}
-
-.activity-gray {
-  background: #f0f0f2;
-  color: #55555d;
-}
-
-.activity-green {
-  background: #eaf8ef;
-  color: #34734a;
-}
-
-.activity-purple {
-  background: #f2edff;
-  color: #60499b;
-}
-
-.activity-orange {
-  background: #fff0e4;
-  color: #96511d;
+.cell.unavailable {
+  background: #ffffff;
 }
 
 
-/* =========================================
-   UNAVAILABLE X
-========================================= */
-
-.unavailable-cell {
+.cell-x {
   position: absolute;
+
   inset: 0;
+
+  width: 100%;
+  height: 100%;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+
+  pointer-events: none;
 }
 
-.unavailable-cell::before,
-.unavailable-cell::after {
+
+.cell-x::before,
+.cell-x::after {
   content: "";
+
   position: absolute;
-  width: 78%;
-  height: 7px;
-  max-width: 105px;
+
+  width: 62%;
+  max-width: 78px;
+
+  height: 5px;
+
   border-radius: 999px;
+
   background: #ef4444;
 }
 
-.unavailable-cell::before {
+
+.cell-x::before {
   transform: rotate(45deg);
 }
 
-.unavailable-cell::after {
+
+.cell-x::after {
   transform: rotate(-45deg);
 }
 
 
-/* =========================================
-   MOBILE
-========================================= */
+/* =========================================================
+   MOBILE PLANNER VECCHIO
+   Non utilizzato nella nuova versione.
+========================================================= */
 
 .mobile-planner {
   display: none;
 }
 
 
-/* =========================================
+/* =========================================================
    MODAL
-========================================= */
+========================================================= */
 
 .modal {
   position: fixed;
+
   inset: 0;
+
   z-index: 1000;
 
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
 
   padding: 20px;
 
-  background: rgba(15, 15, 18, 0.35);
-  backdrop-filter: blur(5px);
+  background: rgba(20, 20, 25, 0.42);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.18s ease,
+    visibility 0.18s ease;
 }
 
+
 .modal.active {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
 }
+
 
 .modal-box {
   position: relative;
-  width: min(500px, 100%);
+
+  width: min(100%, 480px);
   max-height: calc(100vh - 40px);
+
   overflow-y: auto;
 
-  padding: 28px;
+  padding: 26px;
 
   border-radius: 18px;
+
   background: #ffffff;
 
   box-shadow:
     0 20px 60px rgba(0, 0, 0, 0.16);
 }
 
+
 .close-modal {
   position: absolute;
-  top: 13px;
-  right: 13px;
 
-  width: 30px;
-  height: 30px;
+  top: 12px;
+  right: 14px;
+
+  width: 32px;
+  height: 32px;
 
   border: 0;
-  border-radius: 8px;
+  border-radius: 50%;
 
-  background: #f4f4f5;
-  color: #66666e;
+  background: transparent;
 
-  font-size: 21px;
+  font-size: 25px;
   line-height: 1;
+
+  color: #77777e;
 
   cursor: pointer;
 }
 
-.modal-category {
-  margin-bottom: 8px;
-  font-size: 11px;
-  font-weight: 800;
-  color: #85858d;
-  letter-spacing: 0.05em;
+
+.close-modal:hover {
+  background: #f2f2f4;
 }
 
-.modal-box h2 {
-  margin: 0 0 22px;
-  font-size: 23px;
-  letter-spacing: -0.03em;
+
+.modal-category {
+  margin-bottom: 7px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  color: #77777e;
 }
+
+
+.modal-box h2 {
+  margin: 0 0 20px;
+
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+
 
 .modal-box label {
   display: block;
+
   margin-bottom: 15px;
 
-  font-size: 11px;
-  font-weight: 750;
-  color: #55555d;
+  font-size: 12px;
+  font-weight: 700;
+
+  color: #55555c;
 }
+
 
 .modal-box input,
 .modal-box textarea {
   width: 100%;
+
   margin-top: 7px;
 
   padding: 11px 12px;
 
-  border: 1px solid #e3e3e6;
+  border: 1px solid #dedee3;
   border-radius: 10px;
 
+  outline: none;
+
   background: #fafafa;
-  color: #222229;
 
   font-family: inherit;
-  font-size: 13px;
+  font-size: 14px;
 
-  outline: none;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
 }
+
 
 .modal-box input:focus,
 .modal-box textarea:focus {
-  border-color: #b8b8be;
+  border-color: #b9b9c2;
   background: #ffffff;
 }
 
+
 .modal-box textarea {
-  min-height: 80px;
+  min-height: 90px;
+
   resize: vertical;
 }
 
+
 .time-row {
   display: grid;
+
   grid-template-columns: 1fr 1fr;
+
   gap: 12px;
 }
+
+
+/* =========================================================
+   MODAL BUTTONS
+========================================================= */
 
 .modal-buttons {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: 10px;
-  margin-top: 22px;
+
+  margin-top: 20px;
 }
+
 
 .modal-right-buttons {
   display: flex;
   align-items: center;
+
   gap: 8px;
 }
 
+
 .modal-buttons button {
   min-height: 38px;
+
   padding: 0 13px;
 
-  border: 1px solid #e2e2e5;
-  border-radius: 9px;
+  border: 1px solid #dedee3;
+  border-radius: 10px;
 
   background: #ffffff;
-  color: #44444b;
 
   font-family: inherit;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
 
   cursor: pointer;
 }
 
+
 .modal-buttons .save {
-  border-color: #222229;
-  background: #222229;
+  border-color: #17171a;
+
+  background: #17171a;
+
   color: #ffffff;
 }
 
+
 .modal-buttons .delete {
-  color: #d63636;
-  border-color: #f0caca;
+  border-color: #f1caca;
+
+  color: #c33b3b;
+
+  background: #fff7f7;
 }
 
-.mark-unavailable {
-  color: #d63636 !important;
-  border-color: #f0caca !important;
+
+.modal-buttons .mark-unavailable {
+  border-color: #f2caca;
+
+  color: #d13e3e;
+
+  background: #fff7f7;
 }
 
 
-/* =========================================
-   ATTIVITÀ
-========================================= */
+/* =========================================================
+   GESTIONE ATTIVITÀ
+========================================================= */
 
 .activities-modal-box {
-  width: min(560px, 100%);
+  width: min(100%, 560px);
 }
+
 
 .activities-list {
   display: flex;
   flex-direction: column;
+
   gap: 8px;
-  margin-bottom: 15px;
+
+  margin-bottom: 16px;
 }
 
-.activity-management-item {
+
+.activity-manager-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+
   gap: 12px;
 
-  padding: 11px 12px;
+  padding: 12px;
 
-  border: 1px solid #e8e8eb;
-  border-radius: 11px;
-
-  background: #fafafa;
-}
-
-.activity-management-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-}
-
-.activity-management-icon {
-  font-size: 20px;
-  flex-shrink: 0;
-}
-
-.activity-management-name {
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-
-  font-size: 12px;
-  font-weight: 750;
-}
-
-.activity-management-actions {
-  display: flex;
-  gap: 5px;
-  flex-shrink: 0;
-}
-
-.activity-management-actions button {
-  min-width: 30px;
-  height: 30px;
-
-  border: 1px solid #e3e3e6;
-  border-radius: 8px;
-
-  background: #ffffff;
-  color: #55555d;
-
-  cursor: pointer;
-}
-
-.activity-management-actions button.delete-activity {
-  color: #d63636;
-}
-
-.add-activity-btn {
-  width: 100%;
-  min-height: 40px;
-
-  border: 1px dashed #d7d7dc;
-  border-radius: 10px;
-
-  background: #fafafa;
-  color: #55555d;
-
-  font-family: inherit;
-  font-size: 11px;
-  font-weight: 750;
-
-  cursor: pointer;
-}
-
-.activity-preview {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  margin-top: 5px;
-  margin-bottom: 5px;
-
-  padding: 11px 12px;
-
-  border-radius: 10px;
-  background: #f5f5f7;
-}
-
-.activity-preview span {
-  font-size: 21px;
-}
-
-.activity-preview strong {
-  font-size: 12px;
-}
-
-
-/* =========================================
-   DATA / BACKUP
-========================================= */
-
-.data-modal-box {
-  width: min(460px, 100%);
-}
-
-.data-description {
-  margin: -10px 0 22px;
-
-  font-size: 13px;
-  line-height: 1.5;
-  color: #71717a;
-}
-
-.data-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.data-action {
-  width: 100%;
-  min-height: 52px;
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  padding: 10px 14px;
-
-  border: 1px solid #e5e5e8;
+  border: 1px solid #e7e7ea;
   border-radius: 12px;
 
   background: #fafafa;
-  color: #303037;
-
-  text-align: left;
-  cursor: pointer;
-
-  transition:
-    background 0.15s ease,
-    transform 0.12s ease,
-    border-color 0.15s ease;
 }
 
-.data-action:hover {
-  background: #f3f3f5;
-  border-color: #d9d9de;
-}
 
-.data-action:active {
-  transform: scale(0.985);
-}
-
-.data-action-icon {
-  width: 34px;
-  height: 34px;
+.activity-manager-icon {
+  width: 38px;
+  height: 38px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  flex-shrink: 0;
+  border-radius: 10px;
 
-  border-radius: 9px;
   background: #ffffff;
 
-  font-size: 18px;
+  font-size: 19px;
 }
 
-.data-action-text strong {
-  display: block;
+
+.activity-manager-info {
+  min-width: 0;
+
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.activity-manager-info strong {
+  font-size: 13px;
+}
+
+
+.activity-manager-info span {
+  font-size: 11px;
+
+  color: #88888f;
+}
+
+
+.activity-manager-actions {
+  display: flex;
+  gap: 5px;
+}
+
+
+.activity-manager-actions button {
+  width: 32px;
+  height: 32px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  cursor: pointer;
+
+  font-size: 15px;
+}
+
+
+.activity-manager-actions button:hover {
+  background: #eeeeef;
+}
+
+
+.remove-activity {
+  color: #c53c3c;
+}
+
+
+.add-activity-btn {
+  width: 100%;
+
+  min-height: 42px;
+
+  border: 1px dashed #cfcfd5;
+  border-radius: 11px;
+
+  background: #fafafa;
+
+  font-family: inherit;
   font-size: 13px;
   font-weight: 700;
+
+  cursor: pointer;
 }
+
+
+.add-activity-btn:hover {
+  background: #f3f3f5;
+}
+
+
+/* =========================================================
+   PREVIEW ATTIVITÀ
+========================================================= */
+
+.activity-preview {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 13px;
+
+  margin-top: 4px;
+  margin-bottom: 16px;
+
+  border: 1px solid #e5e5e9;
+  border-radius: 11px;
+
+  background: #fafafa;
+}
+
+
+.activity-preview span {
+  font-size: 20px;
+}
+
+
+.activity-preview strong {
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   DATA / BACKUP
+========================================================= */
+
+.data-modal-box {
+  width: min(100%, 520px);
+}
+
+
+.data-description {
+  margin: -8px 0 20px;
+
+  color: #77777e;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+
+.data-actions {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+
+.data-action {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  width: 100%;
+
+  padding: 14px;
+
+  border: 1px solid #e4e4e8;
+  border-radius: 12px;
+
+  background: #fafafa;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+
+.data-action:hover {
+  background: #f4f4f6;
+  border-color: #d8d8dd;
+}
+
+
+.data-action-icon {
+  width: 38px;
+  height: 38px;
+
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  font-size: 20px;
+}
+
+
+.data-action-text {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.data-action-text strong {
+  font-size: 13px;
+}
+
 
 .data-action-text span {
-  display: block;
-  margin-top: 2px;
-
   font-size: 11px;
-  color: #85858d;
+
+  color: #88888f;
 }
 
-.data-info {
-  margin-top: 18px;
 
-  padding: 11px 12px;
+.data-info {
+  margin-top: 16px;
+
+  padding: 12px;
 
   border-radius: 10px;
 
   background: #f5f5f7;
 
+  color: #77777e;
+
   font-size: 11px;
+
   line-height: 1.45;
-  color: #777780;
 }
 
 
-/* =========================================
-   MOBILE ≤ 700px
-========================================= */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 700px) {
 
   .app {
-    width: calc(100% - 20px);
-    padding: 20px 0 30px;
+    padding: 16px 12px 24px;
   }
 
 
   .app-header {
-    align-items: flex-start;
     flex-direction: column;
+
     gap: 16px;
+
     margin-bottom: 18px;
   }
 
 
   .app-header h1 {
-    font-size: 30px;
+    font-size: 26px;
   }
 
 
   .header-actions {
     width: 100%;
+
     display: grid;
-    grid-template-columns: auto 1fr 1fr;
+
+    grid-template-columns:
+      auto 1fr 1fr;
+
     gap: 7px;
   }
 
 
-  .event-counter {
+  .event-counter,
+  .header-button,
+  .manage-activities-btn {
     min-width: 0;
-    padding: 9px 8px;
+
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+
+  .event-counter {
+    justify-content: center;
   }
 
 
   .header-button,
   .manage-activities-btn {
-    min-height: 40px;
-    padding: 0 8px;
-    font-size: 11px;
+    font-size: 12px;
   }
 
 
   .legend {
-    margin-bottom: 12px;
     gap: 6px;
+
+    margin-bottom: 12px;
   }
 
 
   .legend-item {
-    padding: 5px 7px;
-    font-size: 10px;
-  }
+    padding: 6px 8px;
 
-
-  .desktop-planner {
-    display: none;
-  }
-
-
-  .mobile-planner {
-    display: block;
-
-    border: 1px solid #e5e5e8;
-    border-radius: 15px;
-
-    background: #ffffff;
-
-    overflow: hidden;
-  }
-
-
-  .mobile-day-header {
-    min-height: 58px;
-
-    display: grid;
-    grid-template-columns: 44px 1fr 44px;
-    align-items: center;
-
-    border-bottom: 1px solid #ececef;
-    background: #fafafa;
-  }
-
-
-  .day-nav-btn {
-    width: 34px;
-    height: 34px;
-
-    margin: auto;
-
-    border: 0;
-    border-radius: 9px;
-
-    background: #ffffff;
-    color: #55555d;
-
-    font-size: 25px;
-    line-height: 1;
-
-    cursor: pointer;
-  }
-
-
-  .mobile-day-title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-  }
-
-
-  .mobile-day-title strong {
-    font-size: 12px;
-    letter-spacing: 0.08em;
-  }
-
-
-  .mobile-day-title span {
-    font-size: 10px;
-    color: #8a8a91;
-  }
-
-
-  .mobile-activities {
-    display: flex;
-    flex-direction: column;
-  }
-
-
-  .mobile-activity-row {
-    position: relative;
-
-    display: grid;
-    grid-template-columns: 108px minmax(0, 1fr);
-
-    min-height: 116px;
-
-    border-bottom: 1px solid #ececef;
-  }
-
-
-  .mobile-activity-row:last-child {
-    border-bottom: none;
-  }
-
-
-  .mobile-activity-label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    padding: 12px;
-
-    border-right: 1px solid #ececef;
-    background: #ffffff;
-  }
-
-
-  .mobile-activity-label .activity-icon {
-    font-size: 18px;
-  }
-
-
-  .mobile-activity-label .activity-name {
     font-size: 11px;
   }
 
 
-  .mobile-activity-cell {
-    position: relative;
+  /*
+    IMPORTANTE:
 
-    min-width: 0;
-    min-height: 116px;
+    La griglia resta orizzontale.
+    Non viene più trasformata in una
+    visualizzazione verticale.
 
-    padding: 8px;
+    Il contenitore permette lo scroll
+    orizzontale quando necessario.
+  */
 
-    overflow: hidden;
+  .planner {
+    display: grid;
 
-    cursor: pointer;
-  }
+    width: max-content;
+    min-width: 100%;
 
+    grid-template-columns:
+      112px
+      repeat(7, 78px);
 
-  .mobile-activity-cell .event-card {
-    max-width: 100%;
-  }
+    grid-auto-rows:
+      minmax(94px, auto);
 
-
-  /* =====================================
-     X MOBILE
-  ===================================== */
-
-  .mobile-activity-cell .unavailable-cell {
-    position: absolute;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-radius: 14px;
 
     overflow: hidden;
-    pointer-events: none;
   }
 
 
-  .mobile-activity-cell .unavailable-cell::before,
-  .mobile-activity-cell .unavailable-cell::after {
-    width: 58%;
-    max-width: 95px;
-    height: 5px;
+  /*
+    Wrapper naturale per lo scroll.
+    Poiché il planner stesso è più largo
+    dello schermo, rendiamo il body/app
+    capace di visualizzarlo senza deformarlo.
+  */
 
-    border-radius: 999px;
+  .app {
+    overflow-x: hidden;
+  }
 
-    background: #ef4444;
+
+  /*
+    Per permettere lo scroll orizzontale
+    direttamente sulla tabella.
+  */
+
+  .planner {
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+
+  .corner,
+  .day {
+    min-height: 48px;
+  }
+
+
+  .corner {
+    padding-left: 12px;
+  }
+
+
+  .day {
+    font-size: 10px;
+
+    letter-spacing: 0.02em;
+  }
+
+
+  .activity {
+    padding: 10px;
+
+    gap: 6px;
+  }
+
+
+  .activity-icon {
+    font-size: 16px;
+  }
+
+
+  .activity-name {
+    font-size: 11px;
+  }
+
+
+  .cell {
+    min-height: 94px;
+
+    padding: 5px;
+  }
+
+
+  /*
+    Eventi più compatti su iPhone.
+  */
+
+  .event {
+    padding: 6px 6px;
+
+    margin-bottom: 4px;
+
+    border-radius: 7px;
+  }
+
+
+  .event-time {
+    font-size: 8px;
+  }
+
+
+  .event-title {
+    margin-top: 2px;
+
+    font-size: 9px;
+  }
+
+
+  .event-note {
+    margin-top: 3px;
+
+    font-size: 8px;
+  }
+
+
+  /*
+    X proporzionata alla singola cella
+    mobile, non all'intera riga.
+  */
+
+  .cell-x::before,
+  .cell-x::after {
+    width: 48px;
+    max-width: 48px;
+
+    height: 4px;
+  }
+
+
+  /*
+    Nascondiamo completamente il vecchio
+    sistema mobile a un giorno per volta.
+  */
+
+  .mobile-planner {
+    display: none !important;
   }
 
 
   .modal {
+    align-items: flex-end;
+
     padding: 10px;
   }
 
 
   .modal-box {
     width: 100%;
+
     max-height: calc(100vh - 20px);
 
     padding: 22px 18px;
-    border-radius: 16px;
+
+    border-radius: 18px;
   }
 
 
-  .modal-box h2 {
-    font-size: 21px;
+  .time-row {
+    gap: 8px;
   }
 
 
   .modal-buttons {
-    flex-direction: column;
     align-items: stretch;
   }
 
 
   .modal-right-buttons {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    flex-wrap: wrap;
+
+    justify-content: flex-end;
+  }
+
+}
+
+
+/* =========================================================
+   IPHONE MOLTO STRETTO
+========================================================= */
+
+@media (max-width: 390px) {
+
+  .app {
+    padding-left: 9px;
+    padding-right: 9px;
   }
 
 
-  .modal-right-buttons button {
-    width: 100%;
+  .header-actions {
+    grid-template-columns:
+      58px 1fr 1fr;
   }
 
 
-  .mark-unavailable {
-    width: 100%;
+  .event-counter {
+    padding: 0 5px;
   }
 
 
-  .data-action {
-    min-height: 56px;
+  .header-button,
+  .manage-activities-btn {
+    padding-left: 6px;
+    padding-right: 6px;
+
+    font-size: 11px;
+  }
+
+
+  .planner {
+    grid-template-columns:
+      104px
+      repeat(7, 74px);
+  }
+
+
+  .activity-name {
+    font-size: 10px;
+  }
+
+
+  .cell-x::before,
+  .cell-x::after {
+    width: 44px;
+    max-width: 44px;
+
+    height: 4px;
+  }
+
+}
+
+
+/* =========================================================
+   SCROLLBAR MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .planner::-webkit-scrollbar {
+    height: 5px;
+  }
+
+
+  .planner::-webkit-scrollbar-track {
+    background: #f2f2f4;
+  }
+
+
+  .planner::-webkit-scrollbar-thumb {
+    background: #cfcfd4;
+
+    border-radius: 999px;
   }
 
 }
