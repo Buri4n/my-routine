@@ -576,7 +576,21 @@
   ========================================== -->
 
   <script src="script.js"></script>
-
+  
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./service-worker.js")
+        .then(() => {
+          console.log("MY ROUTINE: Service Worker attivo");
+        })
+        .catch(error => {
+          console.error("MY ROUTINE: errore Service Worker", error);
+        });
+    });
+  }
+</script>
+  
 </body>
 
 </html>
