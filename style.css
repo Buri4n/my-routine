@@ -186,6 +186,31 @@ body {
 
 
 /* =========================================================
+   CONTENITORE SCROLL PLANNER
+========================================================= */
+
+.planner-scroll {
+  width: 100%;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: thin;
+
+  border-radius: 16px;
+
+  /*
+    Permette all'iPhone di riconoscere
+    correttamente i movimenti orizzontali
+    senza impedire quelli verticali.
+  */
+  touch-action: pan-x pan-y;
+}
+
+
+/* =========================================================
    PLANNER
 ========================================================= */
 
@@ -1011,6 +1036,12 @@ body {
 
   .app {
     padding: 16px 12px 24px;
+
+    /*
+      Evita che la griglia allarghi
+      accidentalmente l'intera pagina.
+    */
+    overflow-x: hidden;
   }
 
 
@@ -1075,20 +1106,45 @@ body {
   }
 
 
-  /*
-    IMPORTANTE:
+  /* =======================================================
+     SCROLL ORIZZONTALE DELLA TABELLA
+  ======================================================== */
 
-    La griglia resta orizzontale.
-    Non viene più trasformata in una
-    visualizzazione verticale.
+  .planner-scroll {
+    width: 100%;
 
-    Il contenitore permette lo scroll
-    orizzontale quando necessario.
-  */
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    -webkit-overflow-scrolling: touch;
+
+    /*
+      Fondamentale su iPhone:
+      permette di trascinare realmente
+      la tabella da sinistra a destra.
+    */
+    touch-action: pan-x pan-y;
+
+    overscroll-behavior-x: contain;
+
+    border-radius: 14px;
+  }
+
+
+  /* =======================================================
+     GRIGLIA MOBILE
+  ======================================================== */
 
   .planner {
     display: grid;
 
+    /*
+      La griglia è volutamente più larga
+      dello schermo.
+
+      Il wrapper .planner-scroll la contiene
+      e permette lo scorrimento orizzontale.
+    */
     width: max-content;
     min-width: 100%;
 
@@ -1101,32 +1157,11 @@ body {
 
     border-radius: 14px;
 
+    /*
+      IMPORTANTE:
+      nessuno scroll sul planner stesso.
+    */
     overflow: hidden;
-  }
-
-
-  /*
-    Wrapper naturale per lo scroll.
-    Poiché il planner stesso è più largo
-    dello schermo, rendiamo il body/app
-    capace di visualizzarlo senza deformarlo.
-  */
-
-  .app {
-    overflow-x: hidden;
-  }
-
-
-  /*
-    Per permettere lo scroll orizzontale
-    direttamente sulla tabella.
-  */
-
-  .planner {
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    -webkit-overflow-scrolling: touch;
   }
 
 
@@ -1172,9 +1207,9 @@ body {
   }
 
 
-  /*
-    Eventi più compatti su iPhone.
-  */
+  /* =======================================================
+     EVENTI MOBILE
+  ======================================================== */
 
   .event {
     padding: 6px 6px;
@@ -1204,10 +1239,9 @@ body {
   }
 
 
-  /*
-    X proporzionata alla singola cella
-    mobile, non all'intera riga.
-  */
+  /* =======================================================
+     X MOBILE
+  ======================================================== */
 
   .cell-x::before,
   .cell-x::after {
@@ -1218,15 +1252,18 @@ body {
   }
 
 
-  /*
-    Nascondiamo completamente il vecchio
-    sistema mobile a un giorno per volta.
-  */
+  /* =======================================================
+     VECCHIO MOBILE
+  ======================================================== */
 
   .mobile-planner {
     display: none !important;
   }
 
+
+  /* =======================================================
+     MODAL MOBILE
+  ======================================================== */
 
   .modal {
     align-items: flex-end;
@@ -1326,17 +1363,17 @@ body {
 
 @media (max-width: 700px) {
 
-  .planner::-webkit-scrollbar {
+  .planner-scroll::-webkit-scrollbar {
     height: 5px;
   }
 
 
-  .planner::-webkit-scrollbar-track {
+  .planner-scroll::-webkit-scrollbar-track {
     background: #f2f2f4;
   }
 
 
-  .planner::-webkit-scrollbar-thumb {
+  .planner-scroll::-webkit-scrollbar-thumb {
     background: #cfcfd4;
 
     border-radius: 999px;
