@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -12,29 +10,26 @@
 
   <title>MY ROUTINE</title>
 
+  <link rel="stylesheet" href="style.css">
+
   <link
-    rel="stylesheet"
-    href="style.css"
+    rel="manifest"
+    href="manifest.webmanifest"
   >
 
-  <link rel="manifest" 
-        href="manifest.webmanifest"
+  <meta
+    name="theme-color"
+    content="#f7f7f8"
   >
-  
-  <meta name="theme-color" 
-        content="#f7f7f8"
-  >
-
 </head>
-
 
 <body>
 
   <div class="app">
 
-    <!-- =========================================
+    <!-- =====================================================
          HEADER
-    ========================================== -->
+    ====================================================== -->
 
     <header class="app-header">
 
@@ -92,9 +87,9 @@
     </header>
 
 
-    <!-- =========================================
+    <!-- =====================================================
          LEGENDA
-    ========================================== -->
+    ====================================================== -->
 
     <div
       id="legend"
@@ -102,19 +97,21 @@
     ></div>
 
 
-    <!-- =========================================
-         VERSIONE DESKTOP
-    ========================================== -->
+    <!-- =====================================================
+         PLANNER DESKTOP + MOBILE
+    ====================================================== -->
 
     <div
       id="planner"
-      class="planner desktop-planner"
+      class="planner"
     ></div>
 
 
-    <!-- =========================================
-         VERSIONE MOBILE
-    ========================================== -->
+    <!-- =====================================================
+         VECCHIO MOBILE NAV
+         Non viene più utilizzato.
+         Rimane nascosto per compatibilità con il JS.
+    ====================================================== -->
 
     <div
       id="mobilePlanner"
@@ -132,7 +129,6 @@
           ‹
         </button>
 
-
         <div class="mobile-day-title">
 
           <strong id="mobileDayName">
@@ -144,7 +140,6 @@
           </span>
 
         </div>
-
 
         <button
           id="nextDayBtn"
@@ -168,9 +163,9 @@
   </div>
 
 
-  <!-- =========================================
+  <!-- =======================================================
        MODAL EVENTO
-  ========================================== -->
+  ======================================================== -->
 
   <div
     id="modal"
@@ -203,7 +198,6 @@
       <form id="eventForm">
 
         <label>
-
           Titolo
 
           <input
@@ -219,7 +213,6 @@
         <div class="time-row">
 
           <label>
-
             Inizio
 
             <input
@@ -233,7 +226,6 @@
 
 
           <label>
-
             Fine
 
             <input
@@ -249,7 +241,6 @@
 
 
         <label>
-
           Nota
 
           <textarea
@@ -308,9 +299,9 @@
   </div>
 
 
-  <!-- =========================================
-       MODAL GESTIONE ATTIVITÀ
-  ========================================== -->
+  <!-- =======================================================
+       MODAL ATTIVITÀ
+  ======================================================== -->
 
   <div
     id="activitiesModal"
@@ -358,9 +349,9 @@
   </div>
 
 
-  <!-- =========================================
-       MODAL NUOVA / MODIFICA ATTIVITÀ
-  ========================================== -->
+  <!-- =======================================================
+       MODAL FORM ATTIVITÀ
+  ======================================================== -->
 
   <div
     id="activityFormModal"
@@ -392,7 +383,6 @@
       <form id="activityForm">
 
         <label>
-
           Nome
 
           <input
@@ -407,7 +397,6 @@
 
 
         <label>
-
           Emoji
 
           <input
@@ -459,9 +448,9 @@
   </div>
 
 
-  <!-- =========================================
-       MODAL GESTIONE DATI / BACKUP
-  ========================================== -->
+  <!-- =======================================================
+       MODAL DATI / BACKUP
+  ======================================================== -->
 
   <div
     id="dataModal"
@@ -571,26 +560,51 @@
   </div>
 
 
-  <!-- =========================================
+  <!-- =======================================================
        JAVASCRIPT
-  ========================================== -->
+  ======================================================== -->
 
   <script src="script.js"></script>
-  
-<script>
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("./service-worker.js")
-        .then(() => {
-          console.log("MY ROUTINE: Service Worker attivo");
-        })
-        .catch(error => {
-          console.error("MY ROUTINE: errore Service Worker", error);
-        });
-    });
-  }
-</script>
-  
-</body>
 
+
+  <!-- =======================================================
+       SERVICE WORKER
+  ======================================================== -->
+
+  <script>
+
+    if ("serviceWorker" in navigator) {
+
+      window.addEventListener(
+        "load",
+        () => {
+
+          navigator.serviceWorker
+            .register("./service-worker.js")
+
+            .then(() => {
+
+              console.log(
+                "MY ROUTINE: Service Worker attivo"
+              );
+
+            })
+
+            .catch(error => {
+
+              console.error(
+                "MY ROUTINE: errore Service Worker",
+                error
+              );
+
+            });
+
+        }
+      );
+
+    }
+
+  </script>
+
+</body>
 </html>
