@@ -1,0 +1,503 @@
+<div class="app">
+
+  <header class="app-header">
+
+    <div>
+      <div class="brand">MY ROUTINE</div>
+
+      <h1>Settimana Tipo</h1>
+
+      <p>
+        Organizza i tuoi impegni abituali
+      </p>
+    </div>
+
+
+    <div class="header-actions">
+
+      <div class="event-counter">
+        <strong id="eventCount">0</strong>
+        <span>impegni</span>
+      </div>
+
+
+      <button
+        id="openDataBtn"
+        class="header-button"
+        type="button"
+      >
+        💾 Dati
+      </button>
+
+
+      <button
+        id="manageActivitiesBtn"
+        class="manage-activities-btn"
+        type="button"
+      >
+        ⚙️ Attività
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- LEGENDA -->
+
+  <div
+    id="legend"
+    class="legend"
+  ></div>
+
+
+  <!-- DESKTOP -->
+
+  <div
+    id="planner"
+    class="planner desktop-planner"
+  ></div>
+
+
+  <!-- MOBILE -->
+
+  <div
+    class="mobile-planner"
+    id="mobilePlanner"
+  >
+
+    <div class="mobile-day-header">
+
+      <button
+        id="previousDayBtn"
+        class="day-nav-btn"
+        type="button"
+        aria-label="Giorno precedente"
+      >
+        ‹
+      </button>
+
+
+      <div class="mobile-day-title">
+
+        <strong id="mobileDayName">
+          LUNEDÌ
+        </strong>
+
+        <span id="mobileDayCounter">
+          1 / 7
+        </span>
+
+      </div>
+
+
+      <button
+        id="nextDayBtn"
+        class="day-nav-btn"
+        type="button"
+        aria-label="Giorno successivo"
+      >
+        ›
+      </button>
+
+    </div>
+
+
+    <div
+      id="mobileActivities"
+      class="mobile-activities"
+    ></div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================
+     MODAL EVENTO
+========================================== -->
+
+<div
+  id="modal"
+  class="modal"
+>
+
+  <div class="modal-box">
+
+    <button
+      id="closeModal"
+      class="close-modal"
+      type="button"
+      aria-label="Chiudi"
+    >
+      ×
+    </button>
+
+
+    <div
+      id="modalCategory"
+      class="modal-category"
+    ></div>
+
+
+    <h2>
+      Imposta impegno
+    </h2>
+
+
+    <form id="eventForm">
+
+      <label>
+        Titolo
+
+        <input
+          id="eventTitle"
+          type="text"
+          placeholder="Es. Lezione di psicologia"
+          required
+        >
+      </label>
+
+
+      <div class="time-row">
+
+        <label>
+          Inizio
+
+          <input
+            id="startTime"
+            type="time"
+            value="18:00"
+            required
+          >
+        </label>
+
+
+        <label>
+          Fine
+
+          <input
+            id="endTime"
+            type="time"
+            value="19:30"
+            required
+          >
+        </label>
+
+      </div>
+
+
+      <label>
+        Nota
+
+        <textarea
+          id="eventNote"
+          placeholder="Eventuale nota..."
+        ></textarea>
+      </label>
+
+
+      <div class="modal-buttons">
+
+        <button
+          type="button"
+          id="markUnavailableBtn"
+          class="mark-unavailable"
+        >
+          Non previsto
+        </button>
+
+
+        <div class="modal-right-buttons">
+
+          <button
+            type="button"
+            id="deleteBtn"
+            class="delete"
+          >
+            Elimina
+          </button>
+
+
+          <button
+            type="button"
+            id="cancelBtn"
+          >
+            Annulla
+          </button>
+
+
+          <button
+            type="submit"
+            class="save"
+          >
+            Salva
+          </button>
+
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================
+     MODAL GESTIONE ATTIVITÀ
+========================================== -->
+
+<div
+  id="activitiesModal"
+  class="modal"
+>
+
+  <div class="modal-box activities-modal-box">
+
+    <button
+      id="closeActivitiesModal"
+      class="close-modal"
+      type="button"
+      aria-label="Chiudi"
+    >
+      ×
+    </button>
+
+
+    <div class="modal-category">
+      ⚙️ Personalizzazione
+    </div>
+
+
+    <h2>
+      Gestisci attività
+    </h2>
+
+
+    <div
+      id="activitiesList"
+      class="activities-list"
+    ></div>
+
+
+    <button
+      id="addActivityBtn"
+      class="add-activity-btn"
+      type="button"
+    >
+      ＋ Aggiungi attività
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================
+     MODAL NUOVA / MODIFICA ATTIVITÀ
+========================================== -->
+
+<div
+  id="activityFormModal"
+  class="modal"
+>
+
+  <div class="modal-box">
+
+    <button
+      id="closeActivityForm"
+      class="close-modal"
+      type="button"
+      aria-label="Chiudi"
+    >
+      ×
+    </button>
+
+
+    <div class="modal-category">
+      ✨ Personalizzazione
+    </div>
+
+
+    <h2 id="activityFormTitle">
+      Aggiungi attività
+    </h2>
+
+
+    <form id="activityForm">
+
+      <label>
+        Nome
+
+        <input
+          id="activityName"
+          type="text"
+          placeholder="Es. Lavoro"
+          maxlength="30"
+          required
+        >
+      </label>
+
+
+      <label>
+        Emoji
+
+        <input
+          id="activityIcon"
+          type="text"
+          placeholder="💼"
+          maxlength="4"
+        >
+      </label>
+
+
+      <div class="activity-preview">
+
+        <span id="activityPreviewIcon">
+          📌
+        </span>
+
+        <strong id="activityPreviewName">
+          Nuova attività
+        </strong>
+
+      </div>
+
+
+      <div class="modal-buttons activity-form-buttons">
+
+        <button
+          type="button"
+          id="cancelActivityBtn"
+        >
+          Annulla
+        </button>
+
+
+        <button
+          type="submit"
+          class="save"
+        >
+          Salva attività
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================
+     MODAL GESTIONE DATI / BACKUP
+========================================== -->
+
+<div
+  id="dataModal"
+  class="modal"
+>
+
+  <div class="modal-box data-modal-box">
+
+    <button
+      id="closeDataModal"
+      class="close-modal"
+      type="button"
+      aria-label="Chiudi"
+    >
+      ×
+    </button>
+
+
+    <div class="modal-category">
+      💾 Sicurezza dati
+    </div>
+
+
+    <h2>
+      Gestione dati
+    </h2>
+
+
+    <p class="data-description">
+      Salva una copia della tua Settimana Tipo oppure
+      ripristina un backup precedentemente esportato.
+    </p>
+
+
+    <div class="data-actions">
+
+      <button
+        id="exportDataBtn"
+        class="data-action"
+        type="button"
+      >
+
+        <span class="data-action-icon">
+          ↗️
+        </span>
+
+        <span class="data-action-text">
+
+          <strong>
+            Esporta backup
+          </strong>
+
+          <span>
+            Salva attività, impegni e impostazioni
+          </span>
+
+        </span>
+
+      </button>
+
+
+      <button
+        id="importDataBtn"
+        class="data-action"
+        type="button"
+      >
+
+        <span class="data-action-icon">
+          ↙️
+        </span>
+
+        <span class="data-action-text">
+
+          <strong>
+            Importa backup
+          </strong>
+
+          <span>
+            Ripristina una settimana salvata
+          </span>
+
+        </span>
+
+      </button>
+
+    </div>
+
+
+    <div class="data-info">
+      Il backup viene salvato come file
+      <strong>.json</strong>.
+      Conservalo in un posto sicuro: ti servirà
+      anche quando passeremo l'app sul telefono.
+    </div>
+
+
+    <input
+      id="importFileInput"
+      type="file"
+      accept=".json,application/json"
+      hidden
+    >
+
+  </div>
+
+</div>
