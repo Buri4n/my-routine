@@ -51,8 +51,6 @@ let editingEventId = null;
 
 let editingActivityId = null;
 
-let currentMobileDay = 0;
-
 
 /* =========================================================
    ELEMENTI
@@ -68,169 +66,119 @@ const eventCount =
   document.getElementById("eventCount");
 
 
-/* MOBILE */
+/* =========================================================
+   ELEMENTI MOBILE LEGACY
+   Manteniamo i riferimenti perché sono presenti nell'HTML,
+   ma non vengono più utilizzati.
+========================================================= */
 
 const mobileDayName =
-  document.getElementById(
-    "mobileDayName"
-  );
+  document.getElementById("mobileDayName");
 
 const mobileDayCounter =
-  document.getElementById(
-    "mobileDayCounter"
-  );
+  document.getElementById("mobileDayCounter");
 
 const mobileActivities =
-  document.getElementById(
-    "mobileActivities"
-  );
+  document.getElementById("mobileActivities");
 
 const previousDayBtn =
-  document.getElementById(
-    "previousDayBtn"
-  );
+  document.getElementById("previousDayBtn");
 
 const nextDayBtn =
-  document.getElementById(
-    "nextDayBtn"
-  );
+  document.getElementById("nextDayBtn");
 
 const mobilePlanner =
-  document.getElementById(
-    "mobilePlanner"
-  );
+  document.getElementById("mobilePlanner");
 
 
-/* EVENT MODAL */
+/* =========================================================
+   EVENT MODAL
+========================================================= */
 
 const modal =
   document.getElementById("modal");
 
 const modalCategory =
-  document.getElementById(
-    "modalCategory"
-  );
+  document.getElementById("modalCategory");
 
 const eventForm =
-  document.getElementById(
-    "eventForm"
-  );
+  document.getElementById("eventForm");
 
 const eventTitle =
-  document.getElementById(
-    "eventTitle"
-  );
+  document.getElementById("eventTitle");
 
 const startTime =
-  document.getElementById(
-    "startTime"
-  );
+  document.getElementById("startTime");
 
 const endTime =
-  document.getElementById(
-    "endTime"
-  );
+  document.getElementById("endTime");
 
 const eventNote =
-  document.getElementById(
-    "eventNote"
-  );
+  document.getElementById("eventNote");
 
 const deleteBtn =
-  document.getElementById(
-    "deleteBtn"
-  );
+  document.getElementById("deleteBtn");
 
 const markUnavailableBtn =
-  document.getElementById(
-    "markUnavailableBtn"
-  );
+  document.getElementById("markUnavailableBtn");
 
 const closeModalBtn =
-  document.getElementById(
-    "closeModal"
-  );
+  document.getElementById("closeModal");
 
 const cancelBtn =
-  document.getElementById(
-    "cancelBtn"
-  );
+  document.getElementById("cancelBtn");
 
 
-/* ATTIVITÀ */
+/* =========================================================
+   ATTIVITÀ
+========================================================= */
 
 const activitiesModal =
-  document.getElementById(
-    "activitiesModal"
-  );
+  document.getElementById("activitiesModal");
 
 const activitiesList =
-  document.getElementById(
-    "activitiesList"
-  );
+  document.getElementById("activitiesList");
 
 const manageActivitiesBtn =
-  document.getElementById(
-    "manageActivitiesBtn"
-  );
+  document.getElementById("manageActivitiesBtn");
 
 const closeActivitiesModal =
-  document.getElementById(
-    "closeActivitiesModal"
-  );
+  document.getElementById("closeActivitiesModal");
 
 const addActivityBtn =
-  document.getElementById(
-    "addActivityBtn"
-  );
+  document.getElementById("addActivityBtn");
 
 
-/* FORM ATTIVITÀ */
+/* =========================================================
+   FORM ATTIVITÀ
+========================================================= */
 
 const activityFormModal =
-  document.getElementById(
-    "activityFormModal"
-  );
+  document.getElementById("activityFormModal");
 
 const activityForm =
-  document.getElementById(
-    "activityForm"
-  );
+  document.getElementById("activityForm");
 
 const activityFormTitle =
-  document.getElementById(
-    "activityFormTitle"
-  );
+  document.getElementById("activityFormTitle");
 
 const activityName =
-  document.getElementById(
-    "activityName"
-  );
+  document.getElementById("activityName");
 
 const activityIcon =
-  document.getElementById(
-    "activityIcon"
-  );
+  document.getElementById("activityIcon");
 
 const activityPreviewIcon =
-  document.getElementById(
-    "activityPreviewIcon"
-  );
+  document.getElementById("activityPreviewIcon");
 
 const activityPreviewName =
-  document.getElementById(
-    "activityPreviewName"
-  );
+  document.getElementById("activityPreviewName");
 
 const closeActivityForm =
-  document.getElementById(
-    "closeActivityForm"
-  );
+  document.getElementById("closeActivityForm");
 
 const cancelActivityBtn =
-  document.getElementById(
-    "cancelActivityBtn"
-  );
+  document.getElementById("cancelActivityBtn");
 
 
 /* =========================================================
@@ -238,42 +186,27 @@ const cancelActivityBtn =
 ========================================================= */
 
 const dataModal =
-  document.getElementById(
-    "dataModal"
-  );
+  document.getElementById("dataModal");
 
 const openDataBtn =
-  document.getElementById(
-    "openDataBtn"
-  );
+  document.getElementById("openDataBtn");
 
 const closeDataModalBtn =
-  document.getElementById(
-    "closeDataModal"
-  );
+  document.getElementById("closeDataModal");
 
 const exportDataBtn =
-  document.getElementById(
-    "exportDataBtn"
-  );
+  document.getElementById("exportDataBtn");
 
 const importDataBtn =
-  document.getElementById(
-    "importDataBtn"
-  );
+  document.getElementById("importDataBtn");
 
 const importFileInput =
-  document.getElementById(
-    "importFileInput"
-  );
+  document.getElementById("importFileInput");
 
 
 /* =========================================================
-   CARICAMENTO DATI
+   CARICAMENTO ATTIVITÀ
 ========================================================= */
-
-
-/* ATTIVITÀ */
 
 try {
 
@@ -316,7 +249,9 @@ try {
 }
 
 
-/* EVENTI */
+/* =========================================================
+   CARICAMENTO EVENTI
+========================================================= */
 
 try {
 
@@ -334,7 +269,9 @@ try {
 }
 
 
-/* X */
+/* =========================================================
+   CARICAMENTO X
+========================================================= */
 
 try {
 
@@ -360,9 +297,7 @@ function saveActivities() {
 
   localStorage.setItem(
     "weeklyPlannerActivities",
-    JSON.stringify(
-      activities
-    )
+    JSON.stringify(activities)
   );
 
 }
@@ -372,9 +307,7 @@ function saveEvents() {
 
   localStorage.setItem(
     "weeklyPlanner",
-    JSON.stringify(
-      events
-    )
+    JSON.stringify(events)
   );
 
 }
@@ -384,9 +317,7 @@ function saveUnavailableCells() {
 
   localStorage.setItem(
     "weeklyPlannerUnavailable",
-    JSON.stringify(
-      unavailableCells
-    )
+    JSON.stringify(unavailableCells)
   );
 
 }
@@ -406,19 +337,14 @@ function getActivityById(id) {
 }
 
 
-function getCellKey(
-  type,
-  day
-) {
+function getCellKey(type, day) {
 
   return `${type}-${day}`;
 
 }
 
 
-function generateId(
-  prefix = "id"
-) {
+function generateId(prefix = "id") {
 
   return (
     prefix +
@@ -463,9 +389,7 @@ function render() {
 
   renderLegend();
 
-  renderDesktopPlanner();
-
-  renderMobilePlanner();
+  renderPlanner();
 
   eventCount.textContent =
     events.length;
@@ -486,9 +410,7 @@ function renderLegend() {
     activity => {
 
       const item =
-        document.createElement(
-          "div"
-        );
+        document.createElement("div");
 
 
       item.className =
@@ -508,9 +430,7 @@ function renderLegend() {
       `;
 
 
-      legend.appendChild(
-        item
-      );
+      legend.appendChild(item);
 
     }
   );
@@ -519,34 +439,35 @@ function renderLegend() {
 
 
 /* =========================================================
-   DESKTOP
+   PLANNER
+   Unica griglia sia desktop che mobile.
 ========================================================= */
 
-function renderDesktopPlanner() {
+function renderPlanner() {
 
   planner.innerHTML = "";
 
 
   const corner =
-    document.createElement(
-      "div"
-    );
+    document.createElement("div");
+
 
   corner.className =
     "corner";
 
-  planner.appendChild(
-    corner
-  );
 
+  planner.appendChild(corner);
+
+
+  /* -------------------------------------------------------
+     GIORNI
+  ------------------------------------------------------- */
 
   days.forEach(
     day => {
 
       const dayElement =
-        document.createElement(
-          "div"
-        );
+        document.createElement("div");
 
 
       dayElement.className =
@@ -568,13 +489,15 @@ function renderDesktopPlanner() {
   );
 
 
+  /* -------------------------------------------------------
+     ATTIVITÀ
+  ------------------------------------------------------- */
+
   activities.forEach(
     activity => {
 
       const label =
-        document.createElement(
-          "div"
-        );
+        document.createElement("div");
 
 
       label.className =
@@ -594,10 +517,12 @@ function renderDesktopPlanner() {
       `;
 
 
-      planner.appendChild(
-        label
-      );
+      planner.appendChild(label);
 
+
+      /* ---------------------------------------------------
+         CELLE DEI 7 GIORNI
+      --------------------------------------------------- */
 
       for (
         let day = 0;
@@ -606,9 +531,7 @@ function renderDesktopPlanner() {
       ) {
 
         const cell =
-          document.createElement(
-            "div"
-          );
+          document.createElement("div");
 
 
         cell.className =
@@ -637,16 +560,14 @@ function renderDesktopPlanner() {
         );
 
 
-        renderDesktopCell(
+        renderCell(
           cell,
           activity.id,
           day
         );
 
 
-        planner.appendChild(
-          cell
-        );
+        planner.appendChild(cell);
 
       }
 
@@ -657,10 +578,10 @@ function renderDesktopPlanner() {
 
 
 /* =========================================================
-   CELLA DESKTOP
+   CELLA
 ========================================================= */
 
-function renderDesktopCell(
+function renderCell(
   cell,
   type,
   day
@@ -675,15 +596,18 @@ function renderDesktopCell(
 
   cell.innerHTML = "";
 
+
   cell.classList.remove(
     "unavailable"
   );
 
 
+  /* -------------------------------------------------------
+     NON PREVISTO
+  ------------------------------------------------------- */
+
   if (
-    unavailableCells.includes(
-      key
-    )
+    unavailableCells.includes(key)
   ) {
 
     cell.classList.add(
@@ -692,9 +616,7 @@ function renderDesktopCell(
 
 
     const xElement =
-      document.createElement(
-        "div"
-      );
+      document.createElement("div");
 
 
     xElement.className =
@@ -710,6 +632,10 @@ function renderDesktopCell(
 
   }
 
+
+  /* -------------------------------------------------------
+     EVENTI
+  ------------------------------------------------------- */
 
   const cellEvents =
     events.filter(
@@ -742,9 +668,7 @@ function renderDesktopCell(
 
 
       const element =
-        document.createElement(
-          "div"
-        );
+        document.createElement("div");
 
 
       element.className =
@@ -767,9 +691,7 @@ function renderDesktopCell(
           event.note
             ? `
               <div class="event-note">
-                ${escapeHTML(
-                  event.note
-                )}
+                ${escapeHTML(event.note)}
               </div>
             `
             : ""
@@ -795,403 +717,12 @@ function renderDesktopCell(
       );
 
 
-      cell.appendChild(
-        element
-      );
+      cell.appendChild(element);
 
     }
   );
 
 }
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-function renderMobilePlanner() {
-
-  mobileDayName.textContent =
-    days[
-      currentMobileDay
-    ].toUpperCase();
-
-
-  mobileDayCounter.textContent =
-    `${currentMobileDay + 1} / 7`;
-
-
-  mobileActivities.innerHTML =
-    "";
-
-
-  activities.forEach(
-    activity => {
-
-      const wrapper =
-        document.createElement(
-          "div"
-        );
-
-
-      wrapper.className =
-        "mobile-activity";
-
-
-      const header =
-        document.createElement(
-          "div"
-        );
-
-
-      header.className =
-        "mobile-activity-header";
-
-
-      header.innerHTML = `
-
-        <span class="mobile-activity-icon">
-          ${escapeHTML(activity.icon)}
-        </span>
-
-        <strong class="mobile-activity-name">
-          ${escapeHTML(activity.name)}
-        </strong>
-
-      `;
-
-
-      wrapper.appendChild(
-        header
-      );
-
-
-      const cell =
-        document.createElement(
-          "div"
-        );
-
-
-      cell.className =
-        "mobile-cell";
-
-
-      const key =
-        getCellKey(
-          activity.id,
-          currentMobileDay
-        );
-
-
-      if (
-        unavailableCells.includes(
-          key
-        )
-      ) {
-
-        cell.classList.add(
-          "unavailable"
-        );
-
-
-        const xElement =
-          document.createElement(
-            "div"
-          );
-
-
-        xElement.className =
-          "cell-x";
-
-
-        cell.appendChild(
-          xElement
-        );
-
-      } else {
-
-        const cellEvents =
-          events.filter(
-            event =>
-              event.type ===
-                activity.id &&
-              Number(event.day) ===
-                currentMobileDay
-          );
-
-
-        cellEvents.sort(
-          (a, b) =>
-            a.start.localeCompare(
-              b.start
-            )
-        );
-
-
-        if (
-          cellEvents.length === 0
-        ) {
-
-          cell.innerHTML = `
-            <div class="mobile-empty">
-              + Aggiungi impegno
-            </div>
-          `;
-
-        } else {
-
-          cell.classList.add(
-            "has-event"
-          );
-
-
-          cellEvents.forEach(
-            event => {
-
-              const eventElement =
-                document.createElement(
-                  "div"
-                );
-
-
-              eventElement.className =
-                `mobile-event color-${activity.color}`;
-
-
-              eventElement.innerHTML = `
-
-                <div class="mobile-event-time">
-                  ${escapeHTML(event.start)}
-                  –
-                  ${escapeHTML(event.end)}
-                </div>
-
-                <div class="mobile-event-title">
-                  ${escapeHTML(event.title)}
-                </div>
-
-                ${
-                  event.note
-                    ? `
-                      <div class="mobile-event-note">
-                        ${escapeHTML(
-                          event.note
-                        )}
-                      </div>
-                    `
-                    : ""
-                }
-
-              `;
-
-
-              eventElement.addEventListener(
-                "click",
-                function(e) {
-
-                  e.stopPropagation();
-
-
-                  openEditEvent(
-                    event,
-                    activity.id,
-                    currentMobileDay
-                  );
-
-                }
-              );
-
-
-              cell.appendChild(
-                eventElement
-              );
-
-            }
-          );
-
-        }
-
-      }
-
-
-      cell.addEventListener(
-        "click",
-        function() {
-
-          openNewEvent(
-            activity.id,
-            currentMobileDay,
-            cell
-          );
-
-        }
-      );
-
-
-      wrapper.appendChild(
-        cell
-      );
-
-
-      mobileActivities.appendChild(
-        wrapper
-      );
-
-    }
-  );
-
-}
-
-
-/* =========================================================
-   CAMBIO GIORNO MOBILE
-========================================================= */
-
-function goToMobileDay(
-  newDay
-) {
-
-  if (
-    newDay < 0
-  ) {
-
-    newDay = 6;
-
-  }
-
-
-  if (
-    newDay > 6
-  ) {
-
-    newDay = 0;
-
-  }
-
-
-  currentMobileDay =
-    newDay;
-
-
-  renderMobilePlanner();
-
-}
-
-
-previousDayBtn.addEventListener(
-  "click",
-  function() {
-
-    goToMobileDay(
-      currentMobileDay - 1
-    );
-
-  }
-);
-
-
-nextDayBtn.addEventListener(
-  "click",
-  function() {
-
-    goToMobileDay(
-      currentMobileDay + 1
-    );
-
-  }
-);
-
-
-/* =========================================================
-   SWIPE MOBILE
-========================================================= */
-
-let touchStartX = 0;
-
-let touchStartY = 0;
-
-
-mobilePlanner.addEventListener(
-  "touchstart",
-  function(e) {
-
-    if (
-      e.touches.length !== 1
-    ) {
-      return;
-    }
-
-
-    touchStartX =
-      e.touches[0].clientX;
-
-    touchStartY =
-      e.touches[0].clientY;
-
-  },
-  {
-    passive: true
-  }
-);
-
-
-mobilePlanner.addEventListener(
-  "touchend",
-  function(e) {
-
-    if (
-      e.changedTouches.length !== 1
-    ) {
-      return;
-    }
-
-
-    const touch =
-      e.changedTouches[0];
-
-
-    const deltaX =
-      touch.clientX -
-      touchStartX;
-
-
-    const deltaY =
-      touch.clientY -
-      touchStartY;
-
-
-    if (
-      Math.abs(deltaX) < 50 ||
-      Math.abs(deltaX) <=
-        Math.abs(deltaY)
-    ) {
-
-      return;
-
-    }
-
-
-    if (
-      deltaX < 0
-    ) {
-
-      goToMobileDay(
-        currentMobileDay + 1
-      );
-
-    } else {
-
-      goToMobileDay(
-        currentMobileDay - 1
-      );
-
-    }
-
-  },
-  {
-    passive: true
-  }
-);
 
 
 /* =========================================================
@@ -1231,9 +762,7 @@ function openNewEvent(
 
 
   const isUnavailable =
-    unavailableCells.includes(
-      key
-    );
+    unavailableCells.includes(key);
 
 
   modalCategory.textContent =
@@ -1244,18 +773,17 @@ function openNewEvent(
 
     eventTitle
       .closest("label")
-      .style.display =
-      "none";
+      .style.display = "none";
+
 
     document
       .querySelector(".time-row")
-      .style.display =
-      "none";
+      .style.display = "none";
+
 
     eventNote
       .closest("label")
-      .style.display =
-      "none";
+      .style.display = "none";
 
 
     markUnavailableBtn.textContent =
@@ -1269,18 +797,17 @@ function openNewEvent(
 
     eventTitle
       .closest("label")
-      .style.display =
-      "block";
+      .style.display = "block";
+
 
     document
       .querySelector(".time-row")
-      .style.display =
-      "grid";
+      .style.display = "grid";
+
 
     eventNote
       .closest("label")
-      .style.display =
-      "block";
+      .style.display = "block";
 
 
     eventTitle.value =
@@ -1306,9 +833,7 @@ function openNewEvent(
   }
 
 
-  modal.classList.add(
-    "active"
-  );
+  modal.classList.add("active");
 
 }
 
@@ -1336,24 +861,21 @@ function openEditEvent(
 
   eventTitle
     .closest("label")
-    .style.display =
-    "block";
+    .style.display = "block";
+
 
   document
     .querySelector(".time-row")
-    .style.display =
-    "grid";
+    .style.display = "grid";
+
 
   eventNote
     .closest("label")
-    .style.display =
-    "block";
+    .style.display = "block";
 
 
   const activity =
-    getActivityById(
-      event.type
-    );
+    getActivityById(event.type);
 
 
   if (!activity) {
@@ -1368,11 +890,14 @@ function openEditEvent(
   eventTitle.value =
     event.title;
 
+
   startTime.value =
     event.start;
 
+
   endTime.value =
     event.end;
+
 
   eventNote.value =
     event.note || "";
@@ -1386,9 +911,7 @@ function openEditEvent(
     "Non previsto";
 
 
-  modal.classList.add(
-    "active"
-  );
+  modal.classList.add("active");
 
 
   setTimeout(
@@ -1419,6 +942,7 @@ eventForm.addEventListener(
     const type =
       selectedCell.type;
 
+
     const day =
       Number(
         selectedCell.day
@@ -1444,6 +968,7 @@ eventForm.addEventListener(
       alert(
         "L'orario di fine deve essere successivo all'orario di inizio."
       );
+
 
       return;
 
@@ -1542,6 +1067,7 @@ markUnavailableBtn.addEventListener(
     const type =
       selectedCell.type;
 
+
     const day =
       Number(
         selectedCell.day
@@ -1556,9 +1082,7 @@ markUnavailableBtn.addEventListener(
 
 
     if (
-      unavailableCells.includes(
-        key
-      )
+      unavailableCells.includes(key)
     ) {
 
       unavailableCells =
@@ -1602,9 +1126,7 @@ markUnavailableBtn.addEventListener(
     }
 
 
-    unavailableCells.push(
-      key
-    );
+    unavailableCells.push(key);
 
 
     saveEvents();
@@ -1681,9 +1203,7 @@ modal.addEventListener(
   "click",
   function(e) {
 
-    if (
-      e.target === modal
-    ) {
+    if (e.target === modal) {
 
       closeEventModal();
 
@@ -1779,6 +1299,7 @@ function renderActivitiesManager() {
       </div>
     `;
 
+
     return;
 
   }
@@ -1788,9 +1309,7 @@ function renderActivitiesManager() {
     activity => {
 
       const item =
-        document.createElement(
-          "div"
-        );
+        document.createElement("div");
 
 
       item.className =
@@ -1840,9 +1359,7 @@ function renderActivitiesManager() {
 
 
       item
-        .querySelector(
-          ".edit-activity"
-        )
+        .querySelector(".edit-activity")
         .addEventListener(
           "click",
           function() {
@@ -1856,9 +1373,7 @@ function renderActivitiesManager() {
 
 
       item
-        .querySelector(
-          ".remove-activity"
-        )
+        .querySelector(".remove-activity")
         .addEventListener(
           "click",
           function() {
@@ -1871,9 +1386,7 @@ function renderActivitiesManager() {
         );
 
 
-      activitiesList.appendChild(
-        item
-      );
+      activitiesList.appendChild(item);
 
     }
   );
@@ -1887,8 +1400,7 @@ function countActivityEvents(
 
   return events.filter(
     event =>
-      event.type ===
-      activityId
+      event.type === activityId
   ).length;
 
 }
@@ -1919,6 +1431,7 @@ function openNewActivity() {
 
   activityName.value =
     "";
+
 
   activityIcon.value =
     "";
@@ -1964,6 +1477,7 @@ function openEditActivity(
 
   activityName.value =
     activity.name;
+
 
   activityIcon.value =
     activity.icon;
@@ -2058,6 +1572,7 @@ activityForm.addEventListener(
 
         activity.name =
           name;
+
 
         activity.icon =
           icon;
@@ -2164,9 +1679,7 @@ function removeActivity(
     `Vuoi eliminare "${activity.name}"?`;
 
 
-  if (
-    activityEvents.length
-  ) {
+  if (activityEvents.length) {
 
     message +=
       `\n\nQuesta attività contiene ${activityEvents.length} impegni. Verranno eliminati anche questi impegni.`;
@@ -2250,9 +1763,7 @@ function getNextColor() {
   const availableColor =
     colors.find(
       color =>
-        !usedColors.includes(
-          color
-        )
+        !usedColors.includes(color)
     );
 
 
@@ -2282,14 +1793,11 @@ function exportBackup() {
     exportedAt:
       new Date().toISOString(),
 
-    activities:
-      activities,
+    activities,
 
-    events:
-      events,
+    events,
 
-    unavailableCells:
-      unavailableCells
+    unavailableCells
 
   };
 
@@ -2313,15 +1821,11 @@ function exportBackup() {
 
 
   const url =
-    URL.createObjectURL(
-      blob
-    );
+    URL.createObjectURL(blob);
 
 
   const link =
-    document.createElement(
-      "a"
-    );
+    document.createElement("a");
 
 
   const date =
@@ -2333,16 +1837,16 @@ function exportBackup() {
   link.href =
     url;
 
+
   link.download =
     `my-routine-backup-${date}.json`;
 
 
-  document.body.appendChild(
-    link
-  );
+  document.body.appendChild(link);
 
 
   link.click();
+
 
   link.remove();
 
@@ -2350,9 +1854,7 @@ function exportBackup() {
   setTimeout(
     function() {
 
-      URL.revokeObjectURL(
-        url
-      );
+      URL.revokeObjectURL(url);
 
     },
     1000
@@ -2365,9 +1867,7 @@ function exportBackup() {
    BACKUP — IMPORTA
 ========================================================= */
 
-function importBackupFile(
-  file
-) {
+function importBackupFile(file) {
 
   if (!file) {
     return;
@@ -2390,14 +1890,13 @@ function importBackupFile(
 
 
         if (
-          !validateBackup(
-            imported
-          )
+          !validateBackup(imported)
         ) {
 
           alert(
             "Il file selezionato non è un backup valido di MY ROUTINE."
           );
+
 
           return;
 
@@ -2418,8 +1917,10 @@ function importBackupFile(
         activities =
           imported.activities;
 
+
         events =
           imported.events;
+
 
         unavailableCells =
           imported.unavailableCells;
@@ -2462,9 +1963,7 @@ function importBackupFile(
     };
 
 
-  reader.readAsText(
-    file
-  );
+  reader.readAsText(file);
 
 }
 
@@ -2473,14 +1972,11 @@ function importBackupFile(
    VALIDAZIONE BACKUP
 ========================================================= */
 
-function validateBackup(
-  backup
-) {
+function validateBackup(backup) {
 
   if (
     !backup ||
-    typeof backup !==
-      "object"
+    typeof backup !== "object"
   ) {
 
     return false;
@@ -2521,84 +2017,49 @@ function validateBackup(
   }
 
 
-  /*
-    Controllo minimo delle attività
-  */
-
   const activitiesValid =
     backup.activities.every(
       activity =>
         activity &&
-        typeof activity.id ===
-          "string" &&
-        typeof activity.name ===
-          "string" &&
-        typeof activity.icon ===
-          "string" &&
-        typeof activity.color ===
-          "string"
+        typeof activity.id === "string" &&
+        typeof activity.name === "string" &&
+        typeof activity.icon === "string" &&
+        typeof activity.color === "string"
     );
 
 
-  if (
-    !activitiesValid
-  ) {
-
+  if (!activitiesValid) {
     return false;
-
   }
 
-
-  /*
-    Controllo minimo degli eventi
-  */
 
   const eventsValid =
     backup.events.every(
       event =>
         event &&
-        typeof event.id ===
-          "string" &&
-        typeof event.type ===
-          "string" &&
-        typeof event.day ===
-          "number" &&
-        typeof event.title ===
-          "string" &&
-        typeof event.start ===
-          "string" &&
-        typeof event.end ===
-          "string"
+        typeof event.id === "string" &&
+        typeof event.type === "string" &&
+        typeof event.day === "number" &&
+        typeof event.title === "string" &&
+        typeof event.start === "string" &&
+        typeof event.end === "string"
     );
 
 
-  if (
-    !eventsValid
-  ) {
-
+  if (!eventsValid) {
     return false;
-
   }
 
-
-  /*
-    Controllo X
-  */
 
   const unavailableValid =
     backup.unavailableCells.every(
       item =>
-        typeof item ===
-        "string"
+        typeof item === "string"
     );
 
 
-  if (
-    !unavailableValid
-  ) {
-
+  if (!unavailableValid) {
     return false;
-
   }
 
 
@@ -2634,8 +2095,7 @@ dataModal.addEventListener(
   function(e) {
 
     if (
-      e.target ===
-      dataModal
+      e.target === dataModal
     ) {
 
       closeDataModal();
@@ -2689,18 +2149,10 @@ importFileInput.addEventListener(
 
     if (file) {
 
-      importBackupFile(
-        file
-      );
+      importBackupFile(file);
 
     }
 
-
-    /*
-      Permette di selezionare
-      nuovamente lo stesso file
-      in futuro.
-    */
 
     importFileInput.value =
       "";
@@ -2717,17 +2169,13 @@ document.addEventListener(
   "keydown",
   function(e) {
 
-    if (
-      e.key !== "Escape"
-    ) {
+    if (e.key !== "Escape") {
       return;
     }
 
 
     if (
-      modal.classList.contains(
-        "active"
-      )
+      modal.classList.contains("active")
     ) {
 
       closeEventModal();
@@ -2764,9 +2212,7 @@ document.addEventListener(
 
 
     if (
-      dataModal.classList.contains(
-        "active"
-      )
+      dataModal.classList.contains("active")
     ) {
 
       closeDataModal();
